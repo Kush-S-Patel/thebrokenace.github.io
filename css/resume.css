@@ -38,7 +38,37 @@ h6 {
 h1 {
   font-size: 6rem;
   line-height: 5.5rem;
+
 }
+
+.boujee-text {
+  --bg-size: 400%;
+  --color-one: hsl(209 78% 35%);
+  --color-two: hsl(206 58% 66%);
+
+  /*font-size: clamp(3rem, 25vmin, 8rem);*/
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 8s infinite linear;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .boujee-text {
+    animation: move-bg 8s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}
+
 
 h2 {
   font-size: 3.5rem;
@@ -187,7 +217,33 @@ section.resume-section .resume-item .resume-date {
 }
 
 .text-primary {
-  color: #145C9E !important;
+  /*color: #145C9E !important;*/
+
+  --bg-size: 400%;
+  --color-one: hsl(15 90% 55%);
+  --color-two: hsl(40 95% 55%);
+/*  font-size: clamp(3rem, 25vmin, 8rem); */
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 8s infinite linear;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .text-primary {
+    animation: move-bg 8s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
 }
 
 a {
