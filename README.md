@@ -1,2 +1,2 @@
-# thebrokenace.github.io
+# patelskush.com
 Personal website for Kush Patel!
