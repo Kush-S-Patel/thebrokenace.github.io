@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://www.kushgarg.com/# -->
+<html lang="en" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Kush&#39;s Portfolio Site">
+  <meta name="author" content="Kush Garg">
+  <meta property="og:title" content="KushGarg.com">
+  <meta property="og:image" content="http://www.kushgarg.com/kushgarg.png">
+  <meta property="og:description" content="Kush Gargs Portfolio Site">
+  <meta property="og:url" content="www.kushgarg.com">
+
+
+  <title>Kush Garg</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./Kush Garg Template_files/bootstrap.min.css" rel="stylesheet">
+  <link href="./Kush Garg Template_files/bootstrap.min.css" rel="stylesheet">
+  <link href="./Kush Garg Template_files/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="./Kush Garg Template_files/css" rel="stylesheet">
+  <link href="./Kush Garg Template_files/css(1)" rel="stylesheet">
+  <link href="./Kush Garg Template_files/all.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./Kush Garg Template_files/resume.css" rel="stylesheet">
+  <link href="./Kush Garg Template_files/test.css" rel="stylesheet">
+<script>/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+
+;// CONCATENATED MODULE: ../core/pkg/flash-identifiers.js
+const FLASH_MIMETYPE = "application/x-shockwave-flash";
+const FUTURESPLASH_MIMETYPE = "application/futuresplash";
+const FLASH7_AND_8_MIMETYPE = "application/x-shockwave-flash2-preview";
+const FLASH_MOVIE_MIMETYPE = "application/vnd.adobe.flash.movie";
+const FLASH_ACTIVEX_CLASSID = "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000";
+
+;// CONCATENATED MODULE: ../core/pkg/plugin-polyfill.js
+
+/**
+ * Replacement object for `MimeTypeArray` that lets us install new fake mime
+ * types.
+ *
+ * Unlike plugins we can at least enumerate mime types in Firefox, so we don't
+ * lose data.
+ *
+ * We also expose a method called `install` which adds a new plugin. This is
+ * used to falsify Flash detection. If the existing `navigator.mimeTypes` has an
+ * `install` method, you should not use `RuffleMimeTypeArray` as some other
+ * plugin emulator is already present.
+ */
+class RuffleMimeTypeArray {
+    constructor(native_mimetype_array) {
+        this.__mimetypes = [];
+        this.__named_mimetypes = {};
+        if (native_mimetype_array) {
+            for (let i = 0; i < native_mimetype_array.length; i++) {
+                this.install(native_mimetype_array[i]);
+            }
+        }
+    }
+    /**
+     * Install a MIME Type into the array.
+     *
+     * @param mimetype The mimetype to install
+     */
+    install(mimetype) {
+        const id = this.__mimetypes.length;
+        this.__mimetypes.push(mimetype);
+        this.__named_mimetypes[mimetype.type] = mimetype;
+        this[mimetype.type] = mimetype;
+        this[id] = mimetype;
+    }
+    item(index) {
+        return this.__mimetypes[index];
+    }
+    namedItem(name) {
+        return this.__named_mimetypes[name];
+    }
+    get length() {
+        return this.__mimetypes.length;
+    }
+    [Symbol.iterator]() {
+        return this.__mimetypes[Symbol.iterator]();
+    }
+}
+/**
+ * Equivalent object to `Plugin` that allows us to falsify plugins.
+ */
+class RufflePlugin extends RuffleMimeTypeArray {
+    constructor(name, description, filename, mimetypes) {
+        super(mimetypes);
+        this.name = name;
+        this.description = description;
+        this.filename = filename;
+    }
+    install(mimetype) {
+        super.install(mimetype);
+    }
+    [Symbol.iterator]() {
+        return super[Symbol.iterator]();
+    }
+}
+/**
+ * Replacement object for `PluginArray` that lets us install new fake plugins.
+ *
+ * This object needs to wrap the native plugin array, since the user might have
+ * actual plugins installed. Firefox doesn't let us enumerate the array, though,
+ * which has some consequences. Namely, we can't actually perfectly wrap the
+ * native plugin array, at least unless there's some secret "unresolved object
+ * property name handler" that I've never known before in JS...
+ *
+ * We can still wrap `namedItem` perfectly at least.
+ *
+ * We also expose a method called `install` which adds a new plugin. This is
+ * used to falsify Flash detection. If the existing `navigator.plugins` has an
+ * `install` method, you should not use `RufflePluginArray` as some other plugin
+ * emulator is already present.
+ */
+class RufflePluginArray {
+    constructor(native_plugin_array) {
+        this.__plugins = [];
+        this.__named_plugins = {};
+        for (let i = 0; i < native_plugin_array.length; i++) {
+            this.install(native_plugin_array[i]);
+        }
+    }
+    install(plugin) {
+        const id = this.__plugins.length;
+        this.__plugins.push(plugin);
+        this.__named_plugins[plugin.name] = plugin;
+        this[plugin.name] = plugin;
+        this[id] = plugin;
+    }
+    item(index) {
+        return this.__plugins[index];
+    }
+    namedItem(name) {
+        return this.__named_plugins[name];
+    }
+    refresh() {
+        // Nothing to do, we just need to define the method.
+    }
+    [Symbol.iterator]() {
+        return this.__plugins[Symbol.iterator]();
+    }
+    get length() {
+        return this.__plugins.length;
+    }
+}
+/**
+ * A fake plugin designed to trigger Flash detection scripts.
+ */
+const FLASH_PLUGIN = new RufflePlugin("Shockwave Flash", "Shockwave Flash 32.0 r0", "ruffle.js", null);
+FLASH_PLUGIN.install({
+    type: FUTURESPLASH_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "spl",
+    enabledPlugin: FLASH_PLUGIN,
+});
+FLASH_PLUGIN.install({
+    type: FLASH_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "swf",
+    enabledPlugin: FLASH_PLUGIN,
+});
+FLASH_PLUGIN.install({
+    type: FLASH7_AND_8_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "swf",
+    enabledPlugin: FLASH_PLUGIN,
+});
+FLASH_PLUGIN.install({
+    type: FLASH_MOVIE_MIMETYPE,
+    description: "Shockwave Flash",
+    suffixes: "swf",
+    enabledPlugin: FLASH_PLUGIN,
+});
+/**
+ * Install a fake plugin such that detectors will see it in `navigator.plugins`.
+ *
+ * This function takes care to check if the existing implementation of
+ * `navigator.plugins` already accepts fake plugin entries. If so, it will use
+ * that version of the plugin array. This allows the plugin polyfill to compose
+ * across multiple plugin emulators with the first emulator's polyfill winning.
+ *
+ * @param plugin The plugin to install
+ */
+function installPlugin(plugin) {
+    if (!("install" in navigator.plugins) || !navigator.plugins["install"]) {
+        Object.defineProperty(navigator, "plugins", {
+            value: new RufflePluginArray(navigator.plugins),
+            writable: false,
+        });
+    }
+    const plugins = navigator.plugins;
+    plugins.install(plugin);
+    if (plugin.length > 0 &&
+        (!("install" in navigator.mimeTypes) || !navigator.mimeTypes["install"])) {
+        Object.defineProperty(navigator, "mimeTypes", {
+            value: new RuffleMimeTypeArray(navigator.mimeTypes),
+            writable: false,
+        });
+    }
+    const mimeTypes = navigator.mimeTypes;
+    for (let i = 0; i < plugin.length; i += 1) {
+        mimeTypes.install(plugin[i]);
+    }
+}
+
+;// CONCATENATED MODULE: ./src/plugin-polyfill.ts
+// This file is compiled and then injected into content.ts's compiled form.
+
+installPlugin(FLASH_PLUGIN);
+
+/******/ })()
+;</script><script src="chrome-extension://donbcfbmhbcapadipfkeojnmajbakjdc/dist/ruffle.js?id=29169626155"></script></head>
+
+    
+<body id="page-top">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="http://www.kushgarg.com/#page-top">
+      <span class="d-block d-lg-none">Kush Garg</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="./Kush Garg Template_files/SB_Headshot.JPG" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="http://www.kushgarg.com/#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="http://www.kushgarg.com/#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger active" href="http://www.kushgarg.com/#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="http://www.kushgarg.com/#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="http://www.kushgarg.com/#interests">Interests</a>
+        </li>
+        <li class="nav-item">
+          <!--<a class="nav-link js-scroll-trigger" href="#awards">Awards</a>-->
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    <div class="container-fluid p-0">
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+          <div class="w-100">
+            <h1 class="mb-0">Kush
+              <span class="text-primary">Garg</span>
+            </h1>
+            <div class="subheading mb-5">
+              <a href="mailto:name@email.com">kush@kushgarg.com</a>
+            </div>
+            <p class="lead mb-5">Programmer, Entrepreneur, CS Student @ Berkeley and Eagle Scout with skills in Web Development, Robotics, and more. I solve problems in my local community and beyond utilizing my knowledge of technology.</p>
+            <p class="lead mb-5">As a computer scientist I've spent time exploring everything from game development to robotic systems control theory. I also love to tinker, modify, and build whatever I program. I have a knack for being able to quickly understand a complex problem from the ground up and can easily become engrossed in an interesting project. I am especially interested in Web Applications, Fintech, and Hardware Level Security. I push myself to learn more and more everyday. </p>
+            <p class="lead mb-5">Check out some of my projects on GitHub, add me on LinkedIn, or shoot me an email!</p>
+            <div class="social-icons">
+              <a href="https://www.linkedin.com/in/kush-g-95b860140" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/Kushg02" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="http://www.kushgarg.com/#" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="http://www.kushgarg.com/facebook.com/kush.garg.35175" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </div>
+          </div>
+                    <ul class="circles" style="height: 30%" ;=""> <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+        </section>
+        <hr class="m-0">
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+          <div class="w-100">
+            <h2 class="mb-5">Experience</h2>
+
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="resume-content">
+                <h3 class="mb-0">Software Engineering Intern</h3>
+                <div class="subheading mb-3">Amazon Web Services - Search Team</div>
+                <p> As a software engineer on an AWS search team, I played a pivotal role in developing and deploying a cutting-edge topic prediction service. I leveraged my expertise in TypeScript to design and implement a sleek front-end, while also building a robust REST API using Rust, JavaScript, and Python to support the service's functionality. I successfully deployed the service to production, resulting in increased search accuracy. My service and other tasks completed will serve as a foundation for features in the team's future roadmap. My technical skills and problem-solving abilities have been instrumental in driving the team's future success and as a result, I was offered a return offer for the following summer shortly upon exit. </p>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">May 2022 - August 2022</span>
+              </div>
+            </div>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="resume-content">
+                <h3 class="mb-0">Software Engineering Intern</h3>
+                <div class="subheading mb-3">Think Surgical Inc. - TCAT Team</div>
+                <p>Identiﬁed model for identifying faults prior to surgery for all robotic systems at Think. Directed technical study investigating critical sensor failures occurring mid-surgery. Critical in ensuring reliability of high impact sensor devices. Examined solutions to detect failures. Built a prototype detector at the driver level to identify data ﬂuctuations. Developed C++ application for testing &amp; validating sensor communication. </p>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">May 2021 - August 2021</span>
+              </div>
+            </div>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="resume-content">
+                <h3 class="mb-0">Head of Product / Software Engineer</h3>
+                <div class="subheading mb-3">Mednetic</div>
+                <p>Developed a platform to connect patients &amp; doctors with a small Berkeley Skydeck startup team. Remodeled front-end using Next.js &amp; helped develop back-end REST API in Node. Overhauled front-end, built physical portal &amp; review system, and repaired UX issues. Consolidated market research, identiﬁed new features, and drafted product speciﬁcation as Product Lead. </p>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">September 2020 - January 2021</span>
+              </div>
+            </div>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="resume-content">
+                <h3 class="mb-0">Software Development Intern</h3>
+                <div class="subheading mb-3">Intel Corporation - MTC Team SSP</div>
+                <p>Explored, documented, and presented reasearch and experiments on hardware-level security platforms Graphene-SGX and OpenEnclave using Intel's Software Guard Extension technology. Thoroughly understood the theory/methodology behind each platform's architecture and design. Documented results/data from memory, CPU, and UX experiments. Concluded each platform's viabiltiy for future Intel Applications. Contributed to Open Source documentation on GitHub. Presented documentation and results to a panel of team experts. Worked with a wide variety of test applications such as deep learning inferencing programs and memory intensive test binary executables. </p>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">July 2019 - August 2019</span>
+              </div>
+            </div>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="resume-content">
+                <h3 class="mb-0">Senior Robotics Programmer/Electrical Engineer</h3>
+                <div class="subheading mb-3">Flower Mound Robotics | Vista Advanced Robotics | Vex team 1350X</div>
+                <p>Worked with a dynamic team of high school level mechanical engineers, industrial designers, and roboticians. Implemented control theory algorithms for advanced autonomous robot control. Placed 6th nationally for VEX robotics programming skills and competed in the 2018 VEX World Championships. Team invited to VEX National Championship every year participated. </p>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">August 2015 - Present</span>
+              </div>
+            </div>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+              <div class="resume-content">
+                <h3 class="mb-0">WebAmp Pro Web Design Agency </h3>
+                <p>Won 2017 Innovate Entrepreneurship Center’s Teen Startup Competition securing an internship. Was mentored by local entrepreneurs and was instructed on proper business practices. Acquired Texas Sole Proprietorship License in March 2018. Agency generates and sells sites using HTML, CSS, Javascript, Bootstrap Framework, PHP, Photoshop, and web networking skills to make responsive web pages. Have launched two client sites and three are currently in development. WebAmp.pro</p>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">November 2017 - Present</span>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+        <hr class="m-0">
+        <section class="resume-section-small p-3 p-lg-5 d-flex align-items-center" id="education">
+          <div class="w-100">
+            <h2 class="mb-5">Education</h2>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+              <div class="resume-content">
+                <h3 class="mb-0">University of California, Berkeley</h3>
+                <div class="subheading mb-3">B.A. Computer Science: </div>
+                <div class="row">
+                  <div class="col-md">
+                      <br>
+                      <div class="subheading mb-3">Taken</div>
+                      <ul class="fa-ul mb-0">
+                          <li>61A - Structures of Computer Programs</li>
+                          <li>61B - Data Structures and Algorithms</li>
+                          <li>CS70 - Discrete Math and Probability Theory</li>
+                          <li>EE16A - Designing Digital Devices</li>
+                      </ul>
+                  </div>
+                  <div class="col-md">
+                      <br>
+                      <div class="subheading mb-3">Currently Taking</div>
+                      <ul class="fa-ul mb-0">
+                          <li>CS161 - Computer Security</li>
+                          <li>EE16B - Designing Information Devices and Systems</li>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">Graduating May 2023</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr class="m-0">
+        <section class="resume-section-small p-3 p-lg-5 d-flex align-items-center" id="skills">
+          <div class="w-100">
+            <h2 class="mb-5">Skills</h2>
+
+            <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+            <ul class="list-inline dev-icons">
+              <li class="list-inline-item">
+                <i class="fab fa-html5"></i>
+              </li>
+              <li class="list-inline-item">
+                <i class="fab fa-css3-alt"></i>
+              </li>
+              <li class="list-inline-item">
+                <i class="fab fa-js-square"></i>
+              </li>
+
+              <li class="list-inline-item">
+                <i class="fab fa-react"></i>
+              </li>
+              <li class="list-inline-item">
+                <i class="fab fa-node-js"></i>
+              </li>
+              <li class="list-inline-item">
+                <i class="fab fa-wordpress"></i>
+              </li>
+
+            </ul>
+
+            <div class="subheading mb-3">Workflows</div>
+            <ul class="fa-ul mb-0">
+              <li>
+                <i class="fa-li fa fa-check"></i>
+                Users-First, Responsive Design</li>
+              <li>
+                <i class="fa-li fa fa-check"></i>
+                Cross Platform Testing &amp; Debugging</li>
+              <li>
+                <i class="fa-li fa fa-check"></i>
+                Cross Functional Teams</li>
+              <li>
+                <i class="fa-li fa fa-check"></i>
+                Linux, Windows, OSX Fluent</li>
+              <li>
+                <i class="fa-li fa fa-check"></i>
+                Agile Development &amp; Scrum</li>
+            </ul>
+          </div>
+        </section>
+        <hr class="m-0">
+        <section class="resume-section-small p-3 p-lg-5 d-flex align-items-center" id="interests">
+
+        <div class="w-100">
+            <h2 class="mb-5">Interests</h2>
+            <p>Apart from being a web developer, I enjoy most of my time being outdoors. During the warmer months here in California, I enjoy mountain biking, scuba diving, camping and kayaking.</p>
+            <p>One of my favorite activities is robotics. Whether I am building for a competition, trying to make a tennisball launcher, hack an RC car, or making something just for fun I love designing, building, and coding each and every part. I would like to someday found a robotics company that specializes in fighting fires called: Firestorm Technologies.</p>
+            <p>When forced away from my laptop, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in astronomy, robotics, and programming.</p>
+            <p class="mb-0"></p>
+          </div>
+
+    </section>
+
+            <!-- Page Content -->
+            <hr class="m-0">
+                  <!-- 
+                    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
+                      <div class="w-100">
+                        <h2 class="mb-5">Awards &amp; Certifications</h2>
+                        <ul class="fa-ul mb-0">
+                          <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            Google Analytics Certified Developer</li>
+                          <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            Mobile Web Specialist - Google Certification</li>
+                          <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            1<sup>st</sup>
+                            Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>
+                          <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            1<sup>st</sup>
+                            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>
+                          <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            2<sup>nd</sup>
+                            Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>
+                          <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            1<sup>st</sup>
+                            Place - James Buchanan High School - Hackathon 2006</li>
+                          <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            3<sup>rd</sup>
+                            Place - James Buchanan High School - Hackathon 2005</li>
+                        </ul>
+                      </div>
+                    </section>
+                -->
+    </div>
+
+  <!-- Bootstrap core JavaScript -->
+      <script src="./Kush Garg Template_files/jquery.min.js.download"></script>
+      <script src="./Kush Garg Template_files/bootstrap.bundle.min.js.download"></script>
+
+  <!-- Plugin JavaScript -->
+      <script src="./Kush Garg Template_files/jquery.easing.min.js.download"></script>
+
+  <!-- Custom scripts for this template -->
+      <script src="./Kush Garg Template_files/resume.min.js.download"></script>
+
+
+
+
+</body></html>
