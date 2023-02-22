@@ -41,6 +41,11 @@ h1 {
 
 }
 
+.btn-lgss {
+    background-color: #24a0ed !important;
+    margin-bottom: 20px;
+}
+
 .boujee-text {
   --bg-size: 400%;
   --color-one: hsl(209 78% 35%);
