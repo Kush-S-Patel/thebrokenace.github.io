@@ -34,7 +34,14 @@ h6 {
   text-transform: uppercase;
   color: #1A1F16;
 }
-
+.hide-desktop {
+  display:none;
+}
+@media screen and (max-width:780px) {
+  .hide-desktop {
+    display:block;
+  }
+}
 h1 {
   font-size: 6rem;
   line-height: 5.5rem;
