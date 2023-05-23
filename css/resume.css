@@ -42,6 +42,11 @@ h6 {
     display:block;
   }
 }
+@media screen and (max-width:780px) {
+  .hide-desktop {
+    display:block;
+  }
+}
 h1 {
   font-size: 6rem;
   line-height: 5.5rem;
