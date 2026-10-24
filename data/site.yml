@@ -74,10 +74,10 @@ education_overrides:
       - DATA104 - Human Contexts and Ethics of Data
       - ECON100A - Microeconomics
       - ECON175 - Economic Demography
-      - DATA101: Data Engineering (Advanced Database Manipulation)
-      - DATA144 - Data Mining and Analytics (Advanced Data Analysis)
-      - STAT 134: Concepts of Probability (Statistics Theory)
-      - CS198: Cubstart iOS Decal (Advanced iOS Application Programming)
+      - "DATA101 - Data Engineering (Advanced Database Manipulation)"
+      - "DATA144 - Data Mining and Analytics (Advanced Data Analysis)"
+      - "STAT 134 - Concepts of Probability (Statistics Theory)"
+      - "CS198 - Cubstart iOS Decal (Advanced iOS Application Programming)"
 
 # Font Awesome / font-mfizz icons for skills shown as icon row
 skill_icons:
