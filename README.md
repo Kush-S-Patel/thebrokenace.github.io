@@ -42,7 +42,7 @@ On change it commits `index.html`, `Kush_Patel_Resume.pdf`, and `data/kush_patel
 
 | Secret | Purpose |
 |--------|---------|
-| `AUTOTAILOR_PAT` | Only if AutoTailor is **private** (PAT with `repo` read). |
+| `AUTOTAILOR_PAT` | **Required if AutoTailor is private.** Fine-grained or classic PAT with read access to `Kush-S-Patel/AutoTailor`. Without it, sync falls back to `data/kush_patel.yml` already in this repo (CI will warn). |
 
 **On `AutoTailor`:**
 

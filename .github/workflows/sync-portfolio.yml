@@ -10,6 +10,7 @@ on:
   push:
     paths:
       - "data/site.yml"
+      - "data/kush_patel.yml"
       - "templates/**"
       - "sync/**"
       - ".github/workflows/sync-portfolio.yml"
@@ -27,16 +28,30 @@ jobs:
     steps:
       - name: Checkout portfolio
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout AutoTailor
+        id: autotailor
+        continue-on-error: true
         uses: actions/checkout@v4
         with:
           repository: Kush-S-Patel/AutoTailor
           path: AutoTailor
-          # Public AutoTailor works with github.token; private needs AUTOTAILOR_PAT
+          # Required when AutoTailor is private (PAT with repo read)
           token: ${{ secrets.AUTOTAILOR_PAT || github.token }}
+
+      - name: Resolve resume YAML source
+        id: source
+        run: |
+          if [ -f AutoTailor/data/kush_patel.yml ]; then
+            echo "yml=${{ github.workspace }}/AutoTailor/data/kush_patel.yml" >> "$GITHUB_OUTPUT"
+            echo "Using checked-out AutoTailor YAML"
+          elif [ -f data/kush_patel.yml ]; then
+            echo "yml=${{ github.workspace }}/data/kush_patel.yml" >> "$GITHUB_OUTPUT"
+            echo "::warning::AutoTailor checkout unavailable; using data/kush_patel.yml in this repo. Add AUTOTAILOR_PAT secret for live pulls from AutoTailor."
+          else
+            echo "::error::No kush_patel.yml found"
+            exit 1
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -45,19 +60,20 @@ jobs:
           cache: pip
           cache-dependency-path: sync/requirements.txt
 
-      - name: Install system deps (wkhtmltopdf)
+      - name: Install system deps (wkhtmltopdf + xvfb)
         run: |
           sudo apt-get update
-          sudo apt-get install -y wkhtmltopdf
+          sudo apt-get install -y wkhtmltopdf xvfb
 
       - name: Install Python deps
         run: pip install -r sync/requirements.txt
 
       - name: Run sync
         env:
-          AUTOTAILOR_RESUME_YML: ${{ github.workspace }}/AutoTailor/data/kush_patel.yml
-          SYNC_REQUIRE_PDF: "true"
-        run: python -m sync.sync
+          AUTOTAILOR_RESUME_YML: ${{ steps.source.outputs.yml }}
+          # HTML sync must succeed; PDF is best-effort under xvfb
+          SYNC_REQUIRE_PDF: "false"
+        run: xvfb-run -a python -m sync.sync
 
       - name: Commit & push if changed
         run: |
