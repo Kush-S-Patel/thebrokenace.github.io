@@ -29,8 +29,12 @@
       margin: auto auto 0;
       padding: 0.5rem;
       .img-profile {
+        width: 10rem;
+        height: 10rem;
         max-width: 10rem;
         max-height: 10rem;
+        object-fit: cover;
+        object-position: center center;
         border: 0.5rem solid fade-out($white, 0.8);
       }
     }
