@@ -48,7 +48,7 @@ On change it commits `index.html`, `Kush_Patel_Resume.pdf`, and `data/kush_patel
 
 | Secret | Purpose |
 |--------|---------|
-| `PORTFOLIO_DISPATCH_PAT` | PAT with `repo` scope on the portfolio repo so pushes to `data/kush_patel.yml` trigger sync. |
+| `PORTFOLIO_DISPATCH_PAT` | PAT that can call `repository_dispatch` on the portfolio. Fine-grained: **Contents: Read and Write** on `thebrokenace.github.io`. Classic: `repo` scope. Read-only tokens fail with `Resource not accessible by personal access token`. |
 
 ### AutoTailor notify workflow
 
