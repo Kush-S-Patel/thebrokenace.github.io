@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px 50px;
+        font-size: 13.8px;
+        line-height: 1.35;
+        color: #000;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 25px;
+        margin-bottom: 4px;
+    }
+
+    .subheader {
+        text-align: center;
+        font-size: 12.8px;
+        margin-bottom: 18px;
+    }
+
+    a {
+        color: #1a0dab;
+        text-decoration: none;
+    }
+
+    .section {
+        margin-top: 18px;
+    }
+
+    .section-title {
+        font-size: 14.5px;
+        font-weight: bold;
+        border-bottom: 1px solid black;
+        margin-bottom: 8px;
+        padding-bottom: 2px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    td {
+        vertical-align: top;
+    }
+
+    .left {
+        font-weight: bold;
+        width: 75%;
+    }
+
+    .right {
+        text-align: right;
+        width: 25%;
+        white-space: nowrap;
+    }
+
+    .subtext {
+        margin-bottom: 4px;
+    }
+
+    ul {
+        margin: 4px 0 10px 18px;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 3px;
+    }
+
+    .coursework {
+        font-size: 12.5px;
+        margin-bottom: 6px;
+    }
+</style>
+</head>
+<body>
+
+<h1>{{ personal.name }}</h1>
+
+<div class="subheader">
+    <strong>{{ target_title }}</strong> |
+    {{ personal.citizenship }} |
+    {{ personal.phone }} |
+    <a href="mailto:{{ personal.email }}">{{ personal.email }}</a> |
+    <a href="{{ personal.website }}">{{ personal.website }}</a> |
+    <a href="{{ personal.github }}">{{ personal.github }}</a>
+</div>
+
+<div class="section">
+    <div class="section-title">EDUCATION</div>
+
+    {% for edu in education %}
+    <table>
+        <tr>
+            <td class="left">{{ edu.institution }}</td>
+            <td class="right">
+                {% if edu.expected_graduation %}
+                    {{ edu.expected_graduation }}
+                {% else %}
+                    {{ edu.start }} - {{ edu.end }}
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    <div class="subtext">{{ edu.degree }}</div>
+
+    {% if edu.coursework %}
+    <div class="coursework">
+        <strong>Coursework:</strong> {{ edu.coursework | join(", ") }}
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="section">
+    <div class="section-title">EXPERIENCE</div>
+
+    {% for job in experience %}
+    <table>
+        <tr>
+            <td class="left">{{ job.role }} — {{ job.company }}{% if job.division %} ({{ job.division }}){% endif %}</td>
+            <td class="right">{{ job.start }} - {{ job.end }}</td>
+        </tr>
+    </table>
+
+    <ul>
+        {% for bullet in job.bullets[:4] %}
+        <li>{{ bullet }}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</div>
+
+<div class="section">
+    <div class="section-title">CERTIFICATIONS, PROJECTS & PRODUCTS</div>
+
+    {% if certifications %}
+    <div>
+        <strong>Certifications:</strong>
+        {% for cert in certifications %}
+            {{ cert.name }} ({{ cert.year }}){% if not loop.last %}, {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if products %}
+    <div style="margin-top: 4px;">
+        <strong>Shipped Products:</strong><br>
+        {% for product in products %}
+            <span>
+                {{ product.description }} —
+                {% for key, value in product.metrics.items() %}
+                    {{ value }} {{ key }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </span>
+            {% if not loop.last %}<br>{% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% for proj in projects %}
+    <table style="margin-top: 6px;">
+        <tr>
+            <td class="left">{{ proj.name }}</td>
+            <td class="right">
+                {% if proj.date %}{{ proj.date }}{% endif %}
+            </td>
+        </tr>
+    </table>
+
+    <ul>
+        {% for bullet in proj.bullets[:3] %}
+        <li>{{ bullet }}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</div>
+
+<div class="section">
+    <div class="section-title">SKILLS</div>
+
+    <div>
+        <strong>Languages:</strong> {{ skills.languages | join(", ") }} |
+        <strong>Data & ML:</strong> {{ skills.data_ml | join(", ") }} |
+        <strong>Databases:</strong> {{ skills.databases | join(", ") }} |
+        <strong>Frameworks:</strong> {{ skills.frameworks | join(", ") }} |
+        <strong>Cloud & DevOps:</strong> {{ skills.cloud_devops | join(", ") }} |
+        <strong>Tools:</strong> {{ skills.tools | join(", ") }}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="img/icons8-info-16.png" type="image/png" >
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="{{ personal.name }} — portfolio">
+  <meta name="author" content="{{ personal.name }}">
+  <title>{{ personal.name }}</title>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="css/font-mfizz-2.4.1/font-mfizz.css">
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="css/css" rel="stylesheet">
+  <link href="css/css(1)" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/resume.min.css" rel="stylesheet">
+  <link href="css/resume.css" rel="stylesheet">
+  <link href="css/test.css" rel="stylesheet">
+  <link href="css/testshapes.css" rel="stylesheet">
+</head>
+<body id="page-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+  <a class="navbar-brand js-scroll-trigger" href="#page-top">
+    <span class="d-block d-lg-none">{{ personal.name }}</span>
+    <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="{{ personal.name }}">
+      </span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid p-0">
+  <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+    <div class="w-100">
+      {% set name_parts = personal.name.split(' ', 1) %}
+      <h1 class="mb-0">{{ name_parts[0] }}
+        <span class="boujee-text">{% if name_parts|length > 1 %}{{ name_parts[1] }}{% endif %}</span>
+      </h1>
+      <div class="subheading mb-5">{{ personal.phone }} ·
+        <a href="mailto:{{ personal.email }}">{{ personal.email }}</a>
+      </div>
+      <button type="button" class="btn btn-info btn-lg btn-lgss" data-toggle="modal" data-target="#myModal">View Resume</button>
+      <div class="hide-desktop"><a href="https://bit.ly/3XRvQjf" target="_parent"><button type="button" class="btn btn-info btn-lg btn-lgss">Add me as a Contact</button></a>
+      </div>
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <iframe src="Kush_Patel_Resume.pdf#toolbar=0" width="100%" height="500px"></iframe>
+              <div class="modal-footer justify-content-between">
+                <a href="Kush_Patel_Resume.pdf" download="Kush_Patel_Resume.pdf">Download</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% for para in about %}
+      <p class="lead mb-5">{{ para }}</p>
+      {% endfor %}
+      <div class="social-icons">
+        <a href="{{ linkedin_url }}" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="{{ personal.github }}" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+    <ul class="particle-network-animation" style="height:31%" ;=""></ul>
+    <ul class="circles" style="height: 30%" ;=""> <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  </section>
+  <hr class="m-0">
+  <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+    <div class="w-100">
+  <h2 class="mb-5">Experience</h2>
+
+  {% for job in experience %}
+  <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+    <div class="resume-content">
+      <h3 class="mb-0">{{ job.role }}</h3>
+      <div class="subheading mb-3">{{ job.company_label }}</div>
+      {% for bullet in job.bullets %}
+      <p>● {{ bullet }}</p>
+      {% endfor %}
+    </div>
+    <div class="resume-date text-md-right">
+      <span class="text-primary">{{ job.date_label }}</span>
+    </div>
+  </div>
+  {% endfor %}
+
+    </div>
+  </section>
+  <hr class="m-0">
+  <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+    <div class="w-100">
+     <h2 class="mb-5">Education</h2>
+
+      {% for edu in education %}
+      <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+        <div class="resume-content">
+          <h3 class="mb-0">{{ edu.institution }}</h3>
+          <div class="subheading mb-3">{{ edu.display_degree }}</div>
+
+          {% if edu.taken or edu.currently_taking %}
+          <div class="row">
+            {% if edu.taken %}
+            <div class="col-md">
+              <br>
+              <div class="subheading mb-3">Taken</div>
+              <ul class="fa-ul mb-0">
+                {% for course in edu.taken %}
+                <li>{{ course }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            {% if edu.currently_taking %}
+            <div class="col-md">
+              <br>
+              <div class="subheading mb-3">Currently Taking</div>
+              <ul class="fa-ul mb-0">
+                {% for course in edu.currently_taking %}
+                <li>{{ course }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="resume-date text-md-right">
+          <span class="text-primary">{{ edu.date_label }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <hr class="m-0">
+  <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="projects">
+    <div class="w-100">
+      <h2 class="mb-5">Projects</h2>
+
+      {% for proj in projects %}
+      <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+        <div class="resume-content">
+          <h3 class="mb-0">{{ proj.name }}</h3>
+          <div class="subheading mb-3">{{ proj.subheading }}</div>
+          {% for bullet in proj.bullets %}
+          <p>● {{ bullet }}</p>
+          {% endfor %}
+        </div>
+        <div class="resume-date text-md-right">
+          <span class="text-primary">{{ proj.date_label }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <hr class="m-0">
+  <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+    <div class="w-100">
+      <h2 class="mb-5">Skills</h2>
+      <div class="subheading mb-3">Programming Languages & Tools</div>
+      <ul class="list-inline dev-icons">
+        {% for skill in skill_icons %}
+        <li class="list-inline-item">
+          <i class="{{ skill.icon }}" title="{{ skill.title }}"></i>
+        </li>
+        {% endfor %}
+      </ul>
+      {% if skills %}
+      <div class="subheading mb-3 mt-4">From resume</div>
+      <ul class="fa-ul mb-0">
+        {% if skills.languages %}<li><i class="fa-li fa fa-check"></i><strong>Languages:</strong> {{ skills.languages | join(", ") }}</li>{% endif %}
+        {% if skills.data_ml %}<li><i class="fa-li fa fa-check"></i><strong>Data &amp; ML:</strong> {{ skills.data_ml | join(", ") }}</li>{% endif %}
+        {% if skills.databases %}<li><i class="fa-li fa fa-check"></i><strong>Databases:</strong> {{ skills.databases | join(", ") }}</li>{% endif %}
+        {% if skills.frameworks %}<li><i class="fa-li fa fa-check"></i><strong>Frameworks:</strong> {{ skills.frameworks | join(", ") }}</li>{% endif %}
+        {% if skills.cloud_devops %}<li><i class="fa-li fa fa-check"></i><strong>Cloud &amp; DevOps:</strong> {{ skills.cloud_devops | join(", ") }}</li>{% endif %}
+        {% if skills.tools %}<li><i class="fa-li fa fa-check"></i><strong>Tools:</strong> {{ skills.tools | join(", ") }}</li>{% endif %}
+      </ul>
+      {% endif %}
+    </div>
+  </section>
+  <hr class="m-0">
+  <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
+    <div class="w-100">
+      <h2 class="mb-5">Interests</h2>
+      {% for para in interests.paragraphs or [] %}
+      <p{% if loop.last %} class="mb-0"{% endif %}>{{ para | safe }}</p>
+      {% endfor %}
+      {% if interests.music %}
+      <div class="social-icons">
+        {% for link in interests.music %}
+        <a href="{{ link.url }}" target="_blank" rel="noopener">
+          <i class="{{ link.icon }}"></i>
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <hr class="m-0">
+  <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
+    <div class="w-100">
+      <h2 class="mb-5">Notable Accomplishments & Certifications</h2>
+      <ul class="fa-ul mb-0">
+        {% for award in awards %}
+        <li>
+          <i class="fa-li fa fa-trophy text-warning"></i>{{ award }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+</div>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="js/resume.min.js"></script>
+<script src="js/test.js"></script>
+</body>
+</html>

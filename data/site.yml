@@ -1,0 +1,109 @@
+# Site-only content overlay. AutoTailor YAML is the source of truth for
+# experience / education / projects / skills / certifications / products.
+# This file holds narrative + display extras that don't belong on the resume.
+
+# Social link only (not synced from LinkedIn)
+linkedin_url: https://www.linkedin.com/in/kush-patel-053973216/
+
+# Used as the headline on the untailored portfolio resume PDF
+target_title: Software Engineer | Data Scientist
+
+about:
+  - My name is Kush Patel. I am a passionate programmer, visionary, and Data Science Master's student at UC Berkeley. I first started programming on Scratch when I was 9 years old, and published my first Apple application on the App Store at 12 years old.
+  - I have skills and experience in a variety of programming languages including Python, Java, Swift, SwiftUI, Objective C, C++, and SQL. I also have a lot of experience in cybersecurity, Selenium, and knowledge about a variety of libraries in the mentioned languages.
+  - As a team-player, I am an effective, efficient, and articulate leader. My analytical prowess combined with my unmatched problem-solving capacity makes me a valuable keystone in any group project. As the founder of two companies, my experience in working with other people has developed to the point where once a goal and team communication has been established, nothing is unachievable. I push myself to the absolute limit every day, and I find comfort in discomfort.
+  - Ever since I could remember, I've used technology to solve problems. The most recent example that comes to mind is an automatic class registration tool that I wrote last year in Selenium and Chromium Web Driver (Java) to automatically sign up for my classes at UC Berkeley when the enrollment period started. The source code for this project is on my GitHub.
+  - Feel free to check out some of my projects on GitHub, connect with me on LinkedIn, or email me if you'd like to chat!
+
+interests:
+  paragraphs:
+    - When I'm not programming or learning, I like to hike, sing, play chess, game, garden, make art, and weightlift. Just last year I climbed Mission Peak in Fremont, at a peak altitude of 2,517 feet!
+    - I also act (look forward to my newest film, <a href="https://williamkhuu.com/double-major">Double Major</a>), and make music! Below is a link to my Spotify and Apple Music artist page, look forward to more uploads in the future!
+    - I also enjoy pushing the limits of cybersecurity in everyday life; I like to look at systems in place and see how possible it would be to exploit it. I am skilled at RFID manipulation, security analysis, and using my knowledge of vulnerabilities in software to gain an advantage (but not maliciously! :))
+  music:
+    - url: https://music.apple.com/us/artist/mortals/675318144
+      icon: fab fa-apple
+    - url: https://open.spotify.com/artist/1WXTBwjxAKhJq2ZUUWC6uD
+      icon: fab fa-spotify
+
+# Extra awards beyond AutoTailor certifications / products / affiliations
+awards_extra:
+  - MIDS (Master of Information and Data Science) Berkeley Scholarship
+  - International Baccalaureate Diploma
+  - Seal of Biliteracy (French)
+  - IGETC Certification from American River College
+  - Natomas Chamber of Commerce Scholarship
+  - Natomas NextGen Computer Grant Award
+  - NUSD Recognition of Excellence in Technology Award
+
+# Optional education entries / course display only on the site (not in AutoTailor YAML)
+education_extra:
+  - institution: American River College
+    degree: Transfer coursework
+    gpa: "3.92"
+    start: May 2020
+    end: May 2022
+    coursework:
+      - CISP 440 - Discrete Structures for Computer Science
+      - CISP 400 - Object Oriented Programming C++
+      - PHYS 431 - Heat, Waves, Light and Modern Physics
+      - PHYS 421 - Electricity and Magnetism
+
+# Optional richer course lists keyed by degree substring (overrides YAML coursework display)
+education_overrides:
+  - match_degree: Master of Information and Data Science
+    display_degree: "M.S. Data Science:"
+    taken:
+      - DATASCI 201 - Research Design and Applications for Data and Analysis
+      - DATASCI 203 - Statistics for Data Science
+    currently_taking:
+      - DATASCI 205 - Fundamentals of Data Engineering
+      - DATASCI 207 - Applied Machine Learning
+  - match_degree: Bachelor of Arts in Data Science
+    display_degree: "B.A. Data Science:"
+    taken:
+      - CS61A - Structures of Computer Programs
+      - CS61B - Data Structures and Algorithms
+      - CS70 - Discrete Math and Probability Theory
+      - DATA8 - Foundations of Data Science
+      - DATA100 - Principles and Techniques of Data Science
+      - DATA104 - Human Contexts and Ethics of Data
+      - ECON100A - Microeconomics
+      - ECON175 - Economic Demography
+      - DATA101: Data Engineering (Advanced Database Manipulation)
+      - DATA144 - Data Mining and Analytics (Advanced Data Analysis)
+      - STAT 134: Concepts of Probability (Statistics Theory)
+      - CS198: Cubstart iOS Decal (Advanced iOS Application Programming)
+
+# Font Awesome / font-mfizz icons for skills shown as icon row
+skill_icons:
+  - icon: fab fa-html5
+    title: HTML & HTML5
+  - icon: fab fa-css3-alt
+    title: CSS
+  - icon: fab fa-js-square
+    title: JavaScript
+  - icon: fab fa-apple
+    title: Objective C, Swift, and SwiftUI
+  - icon: fab fa-node-js
+    title: Node.js
+  - icon: fab fa-python
+    title: Python
+  - icon: fab fa-java
+    title: Java
+  - icon: icon-cplusplus
+    title: C++
+  - icon: fa fa-database
+    title: SQL
+  - icon: fab fa-cuttlefish
+    title: C#
+  - icon: fab fa-r-project
+    title: R
+  - icon: fab fa-react
+    title: React
+  - icon: fab fa-aws
+    title: AWS
+  - icon: fab fa-docker
+    title: Docker
+  - icon: fab fa-git-alt
+    title: Git
