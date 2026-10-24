@@ -183,6 +183,7 @@ affiliations:
 projects:
   - name: HSP Lab — Clinical PSG Analysis & ML Decision Support
     date: 2026
+    url: https://github.com/Kush-S-Patel/HumanSleepProject
     tech:
       - Python
       - FastAPI
@@ -197,8 +198,28 @@ projects:
       - Implemented automated-scoring concordance analysis using Cohen’s kappa, AUROC, and Bland–Altman methods to evaluate model outputs against reference annotations
       - Built a reusable Python PSG processing core and FastAPI backend with a Next.js frontend, supporting clinical report exports in PDF, HTML, JSON, and BIDS Events TSV formats
       - Containerized optional signal-processing and CAISR scoring workflows with Docker and automated quality checks via pytest, Ruff, TypeScript, and GitHub Actions, designed for human-in-the-loop review and clinical safety rather than autonomous diagnosis
+
+  - name: CareCall — Post-Discharge AI Follow-Up
+    date: 2026
+    url: https://github.com/Kush-S-Patel/AI-Hackathon-2026
+    tech:
+      - Python
+      - FastAPI
+      - React
+      - TypeScript
+      - LLMs
+      - Twilio
+      - Redis
+      - NLP
+    bullets:
+      - Built CareCall, a post-discharge follow-up platform that reaches patients by SMS or voice in their preferred language to confirm medication adherence and recovery
+      - Combined deterministic clinical red-flag tripwires with LLM classification so dangerous symptoms escalate to humans before conversational AI continues
+      - Designed privacy-preserving architecture with an identity vault and on-device PDF structuring so the LLM never sees raw patient identifiers
+      - Delivered a FastAPI backend and React care-team dashboard with explainable readmission risk priors from MIMIC-IV cohorts (English + Spanish end to end)
+
   - name: EEG Seizure-Marker Proximity Detection
     date: 2026
+    url: https://github.com/Kush-S-Patel/eeg-seizure-detection
     tech:
       - PyTorch
       - EEG Conformer
@@ -213,8 +234,10 @@ projects:
       - Trained an EEG Conformer with focal loss, improving PR-AUC from 0.082 (logistic regression baseline) to 0.46 and ROC-AUC to 0.86 through systematic benchmarking against EEGNet and classical baselines
       - Evaluated with clinically relevant metrics (event-level false alarms per 24h, precision at fixed recall) rather than accuracy alone, and ran a documented failure analysis isolating why preictal seizure forecasting stayed near chance
       - Open-sourced the pipeline with reproducible notebooks, clearly distinguishing the ML codebase from the dataset's own de-identification tooling
+
   - name: NBA Game Outcome Prediction Model
     date: 2026 - Present
+    url: https://github.com/Kush-S-Patel/207-Sports-Betting-Predictive-Model
     tech:
       - XGBoost
       - Random Forest
@@ -250,6 +273,7 @@ projects:
 
   - name: Telco Customer Churn Prediction
     date: 2025 - Present
+    url: https://github.com/Kush-S-Patel/Telco-Customer-Churn-Predictor
     tech:
       - Logistic Regression
       - Random Forest

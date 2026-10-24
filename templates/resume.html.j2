@@ -168,7 +168,7 @@
     <table style="margin-top: 6px;">
         <tr>
             <td class="left">
-                {{ proj.name }}{% if proj.url %} — <a href="{{ proj.url }}">{{ proj.url }}</a>{% endif %}
+                {{ proj.name }}{% if proj.url %} — <a href="{{ proj.url }}">{% if 'apps.apple.com' in proj.url %}App Store{% elif 'github.com' in proj.url %}GitHub{% else %}Link{% endif %}</a>{% endif %}
             </td>
             <td class="right">
                 {% if proj.date %}{{ proj.date }}{% endif %}
