@@ -56,9 +56,13 @@ education_overrides:
     taken:
       - DATASCI 201 - Research Design and Applications for Data and Analysis
       - DATASCI 203 - Statistics for Data Science
-    currently_taking:
       - DATASCI 205 - Fundamentals of Data Engineering
       - DATASCI 207 - Applied Machine Learning
+      - DATASCI 221 - Modern Artificial Intelligence (AI) Strategy and Applications
+      - DATASCI 255 - Machine Learning Systems Engineering
+    currently_taking:
+      - DATASCI 266 - Natural Language Processing with Deep Learning
+      - DATASCI 267 - Fundamentals of Generative Artificial Intelligence (AI)
   - match_degree: Bachelor of Arts in Data Science
     display_degree: "B.A. Data Science:"
     taken:

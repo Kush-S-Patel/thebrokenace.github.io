@@ -13,6 +13,15 @@ education:
   - institution: University of California, Berkeley
     degree: Master of Information and Data Science
     expected_graduation: Expected May 2027
+    coursework:
+      - DATASCI 201 - Research Design and Applications for Data and Analysis
+      - DATASCI 203 - Statistics for Data Science
+      - DATASCI 205 - Fundamentals of Data Engineering
+      - DATASCI 207 - Applied Machine Learning
+      - DATASCI 221 - Modern Artificial Intelligence (AI) Strategy and Applications
+      - DATASCI 255 - Machine Learning Systems Engineering
+      - DATASCI 266 - Natural Language Processing with Deep Learning (in progress)
+      - DATASCI 267 - Fundamentals of Generative Artificial Intelligence (AI) (in progress)
 
   - institution: University of California, Berkeley
     degree: Bachelor of Arts in Data Science
