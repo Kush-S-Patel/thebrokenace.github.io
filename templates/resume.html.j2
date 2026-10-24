@@ -167,7 +167,9 @@
     {% for proj in projects %}
     <table style="margin-top: 6px;">
         <tr>
-            <td class="left">{{ proj.name }}</td>
+            <td class="left">
+                {{ proj.name }}{% if proj.url %} — <a href="{{ proj.url }}">{{ proj.url }}</a>{% endif %}
+            </td>
             <td class="right">
                 {% if proj.date %}{{ proj.date }}{% endif %}
             </td>

@@ -118,6 +118,7 @@ skills:
 
   data_ml:
     - Machine Learning
+    - Large Language Models (LLMs)
     - Prompt Engineering
     - Multi-Agent Systems
     - LLM Evaluation
@@ -125,6 +126,7 @@ skills:
     - OpenAI API
     - Anthropic API
     - Retrieval-Augmented Generation (RAG)
+    - Natural Language Processing (NLP)
     - Data Visualization
     - SEO Analytics
 
@@ -136,10 +138,13 @@ skills:
 
   frameworks:
     - Flask
+    - SwiftUI
     - Node.js
     - React
     - Express.js
     - Pandas
+    - Next.js
+    - FastAPI
 
   cloud_devops:
     - AWS
@@ -222,19 +227,26 @@ projects:
       - Built a full data pipeline by scraping and aggregating historical game data
       - Improved performance through cross-validation, hyperparameter tuning, and feature optimization
 
-  - name: TextJournal
+  - name: MyTextJournal — AI-Powered SMS Journaling
     date: 2024 - Present
+    url: https://apps.apple.com/us/app/mytextjournal/id6807900002
     tech:
-      - SwiftUI
-      - Flask
-      - AWS EC2
-      - Twilio
+      - Python
       - NLP
+      - Machine Learning
+      - LLMs
+      - Prompt Engineering
+      - Flask
+      - Twilio
+      - REST APIs
+      - SwiftUI
+      - iOS
     bullets:
-      - Built an iOS mental health journaling application (SwiftUI) with a Python (Flask) backend deployed on AWS EC2
-      - Integrated Twilio SMS workflows to enable low-friction journaling via text
-      - Implemented NLP-based sentiment analysis and topic modeling to generate mood summaries and reflection prompts
-      - Designed secure data storage and processing pipelines for user-generated content
+      - Designed, developed, and launched MyTextJournal, an AI-powered journaling platform for SMS/MMS entries with reflective, CBT-informed AI responses (live on the Apple App Store)
+      - Adapted and fine-tuned a language model for conversational journaling, prioritizing relevant follow-up questions over generic AI advice
+      - Built SMS/MMS journaling workflows (including photo messages) via messaging infrastructure to lower friction for daily journaling habits
+      - Developed backend APIs connecting messaging, AI response generation, user accounts, and the native iOS app
+      - Shipped encrypted journal history, daily check-ins, Apple/Google authentication, and subscription / free-trial monetization flows on iOS
 
   - name: Telco Customer Churn Prediction
     date: 2025 - Present

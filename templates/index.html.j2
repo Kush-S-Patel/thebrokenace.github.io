@@ -180,7 +180,13 @@
       {% for proj in projects %}
       <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
         <div class="resume-content">
-          <h3 class="mb-0">{{ proj.name }}</h3>
+          <h3 class="mb-0">
+            {% if proj.url %}
+            <a href="{{ proj.url }}" target="_blank" rel="noopener">{{ proj.name }}</a>
+            {% else %}
+            {{ proj.name }}
+            {% endif %}
+          </h3>
           <div class="subheading mb-3">{{ proj.subheading }}</div>
           {% for bullet in proj.bullets %}
           <p>● {{ bullet }}</p>
