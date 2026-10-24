@@ -83,17 +83,8 @@
 
 <h1>{{ personal.name }}</h1>
 
-<table>
-    <tr>
-        <td class="left"><strong>{{ target_title }}</strong></td>
-        <td class="right">
-            {% if personal.linkedin %}
-            <a href="{{ personal.linkedin }}">{{ personal.linkedin }}</a>
-            {% endif %}
-        </td>
-    </tr>
-</table>
 <div class="subheader">
+    <strong>{{ target_title }}</strong> |
     {{ personal.citizenship }} |
     {{ personal.phone }} |
     <a href="mailto:{{ personal.email }}">{{ personal.email }}</a> |
