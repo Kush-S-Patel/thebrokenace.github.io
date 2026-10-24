@@ -176,6 +176,22 @@ affiliations:
   - Apple Developer Program (Nonprofit Organization Account)
 
 projects:
+  - name: HSP Lab — Clinical PSG Analysis & ML Decision Support
+    date: 2026
+    tech:
+      - Python
+      - FastAPI
+      - Next.js
+      - Docker
+      - pytest
+      - TypeScript
+      - GitHub Actions
+    bullets:
+      - Built a full-stack clinical decision-support platform for polysomnography (PSG) analysis on the Human Sleep Project dataset (119,000+ recordings from ~90,000 patients across five U.S. clinical centers)
+      - Developed an interactive study-triage dashboard with AHI, OSA severity, clinical metrics, and review status, integrating automated and human-scored annotations, hypnograms, respiratory event timelines, signal previews, and epoch-level QC tools
+      - Implemented automated-scoring concordance analysis using Cohen’s kappa, AUROC, and Bland–Altman methods to evaluate model outputs against reference annotations
+      - Built a reusable Python PSG processing core and FastAPI backend with a Next.js frontend, supporting clinical report exports in PDF, HTML, JSON, and BIDS Events TSV formats
+      - Containerized optional signal-processing and CAISR scoring workflows with Docker and automated quality checks via pytest, Ruff, TypeScript, and GitHub Actions, designed for human-in-the-loop review and clinical safety rather than autonomous diagnosis
   - name: EEG Seizure-Marker Proximity Detection
     date: 2026
     tech:
