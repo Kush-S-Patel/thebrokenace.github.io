@@ -96,7 +96,7 @@ def main(argv: list[str] | None = None) -> int:
             render_resume_pdf(
                 resume_dest,
                 template_dir,
-                target_title=site.get("target_title") or "Software Engineer",
+                target_title=site.get("target_title") or "ML Engineer",
                 html_out=ROOT / "output" / "portfolio_resume.html",
                 pdf_out=pdf_out,
             )
